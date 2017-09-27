@@ -1,0 +1,33 @@
+{ "projects": [{
+  "name": "Wonderful Ceramics",
+  "description": "Buy my wonderful ceramics",
+  "author": "Billy Smith",
+  "pledged": 5000,
+  "funded": false,
+  "daysToGo": 29,
+  "goal": 100000,
+  "category": "project",
+  "image": "https://i.pinimg.com/236x/eb/59/89/eb5989b51375f7f86209c0183200d94b--pottery-sculpture-ceramics-ideas.jpg"
+  }, {
+    "name": "Norma Mae's Backpacking Odyssey",
+    "description": "Norma Mae will take you on a wonderful journey!",
+    "author": "Norma Mae Higgins",
+    "pledged": 140,
+    "funded": false,
+    "daysToGo": 5,
+    "goal": 200000,
+    "category": "project",
+    "image": "https://images.studentuniverse.com/new/suwebui/photos/marketing/naturebackpacking.jpg"
+  },
+  {
+    "name": "Poor Developer Students Lunch Fund",
+    "description": "Junior Devs need to eat, too. Fill their bellies!",
+    "author": "Kate Byars",
+    "pledged": 5,
+    "funded": false,
+    "daysToGo": 25,
+    "goal": 100000,
+    "category": "charitable-acts",
+    "image": "http://identity-mag.com/wp-content/uploads/2016/08/hangry_feature.jpg"
+    }]
+  }

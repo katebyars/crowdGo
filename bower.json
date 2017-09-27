@@ -1,0 +1,20 @@
+{
+  "name": "crowdgo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Esti Shay & Kate Byars"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

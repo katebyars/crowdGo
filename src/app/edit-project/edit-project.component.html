@@ -1,0 +1,63 @@
+<h4>Edit Project</h4>
+
+<div>
+  <label>Project Name:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.name">
+</div>
+
+<div>
+  <label>Project Description:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.description">
+</div>
+
+<div>
+  <label>Project Author:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.author">
+</div>
+
+<div>
+  <label>Pledged:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.pledged">
+</div>
+
+<div>
+  <label>Funded:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.funded">
+</div>
+
+<div>
+  <label>Days Remaining:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.daysToGo">
+</div>
+
+<div>
+  <label>Monetary Goal:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.goal">
+</div>
+
+<div>
+  <label>Project:</label>
+  <br>
+  <select [(ngModel)]="selectedProject.category">
+    <option value="idea">Idea</option>
+    <option value="charitable-act">Charitable Act</option>
+    <option value="project">Project</option>
+  </select>
+</div>
+
+<div>
+  <label>Project Image URL:</label>
+  <br>
+  <input [(ngModel)]="selectedProject.image">
+</div>
+
+<button (click)="beginUpdatingProject(selectedProject)">Update</button>
+<hr>
+<button (click)="beginDeletingProject(selectedProject)">Delete</button>

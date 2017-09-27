@@ -1,0 +1,12 @@
+<h2>Catalogue</h2>
+
+<div *ngFor="let project of projects | async" class="panel panel-default">
+  <div class="panel-body">
+    <h3 (click)="goToDetailPage(project)"><em>{{project.name}}</em></h3>
+    <div *ngIf="currentRoute === '/admin'">
+      {{project.description}}, {{project.author}}
+      <hr>
+      <app-edit-project [selectedProject]="project"></app-edit-project>
+    </div>
+  </div>
+</div>

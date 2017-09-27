@@ -1,0 +1,84 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add New Project to Catalogue</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+
+      <div>
+        <label>Project Name:</label>
+        <br>
+        <input #newName>
+      </div>
+
+      <div>
+        <label>Project Description:</label>
+        <br>
+        <input #newDescription>
+      </div>
+
+      <div>
+        <label>Project Author:</label>
+        <br>
+        <input #newAuthor>
+      </div>
+
+      <div>
+        <label>Pledged:</label>
+        <br>
+        <input #newPledged>
+      </div>
+
+      <div>
+        <label>Funded:</label>
+        <br>
+        <input #newFunded>
+      </div>
+
+      <div>
+        <label>Days Remaining:</label>
+        <br>
+        <input #newDaysToGo>
+      </div>
+
+      <div>
+        <label>Monetary Goal:</label>
+        <br>
+        <input #newGoal>
+      </div>
+
+      <div>
+        <label>Project:</label>
+        <br>
+        <select #newCategory>
+          <option value="idea">Idea</option>
+          <option value="charitable-act">Charitable Act</option>
+          <option value="project">Project</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Project Image URL:</label>
+        <br>
+        <input #newImage>
+      </div>
+
+      <button (click)="submitForm(newName.value,
+                                  newDescription.value,
+                                  newAuthor.value,
+                                  newPledged.value,
+                                  newFunded.value,
+                                  newDaysToGo.value,
+                                  newGoal.value,
+                                  newCategory.value,
+                                  newImage.value);
+                                  newCategory.value=''; newName.value=''; newDescription.value=''; newAuthor.value=''; newPledged.value=''; newPrice.value=''; newDaysToGo.value=''; newGoal.value='';
+                                  newImage.value=''"
+                                  >Add</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-catalogue></app-catalogue>
+</div>
