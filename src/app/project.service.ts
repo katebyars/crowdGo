@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
+  projectToFund;
 
   constructor(private database: AngularFireDatabase){
     this.projects = database.list('projects');
@@ -39,4 +40,41 @@ export class ProjectService {
     var projectEntryinFirebase = this.getProjectById(localProjectToDelete.$key);
     projectEntryinFirebase.remove();
   }
+
+  fundProject(donationValue, projectToDisplay) {
+    console.log("fund project in service");
+
+    var projectEntryinFirebase = this.getProjectById(projectToDisplay.$key);
+    //
+    // this.getProjectById(projectToDisplay.$key).subscribe(dataLastEmittedFromObserver => {
+    // this.projectToFund = new Project(dataLastEmittedFromObserver.name,
+    //         dataLastEmittedFromObserver.description,
+    //         dataLastEmittedFromObserver.author,
+    //         dataLastEmittedFromObserver.pledged,
+    //         dataLastEmittedFromObserver.funded,
+    //         dataLastEmittedFromObserver.daysToGo,
+    //         dataLastEmittedFromObserver.goal,
+    //         dataLastEmittedFromObserver.category,
+    //         dataLastEmittedFromObserver.image)
+    // })
+
+
+    var newFunds: number = parseInt(projectToDisplay.pledged) + parseInt(donationValue);
+    projectToDisplay.pledged = newFunds;
+    console.log(newFunds);
+    console.log(projectToDisplay.pledged);
+    console.log(donationValue);
+
+    projectEntryinFirebase.update({name: projectToDisplay.name,
+      description: projectToDisplay.description,
+      author: projectToDisplay.author,
+      pledged: projectToDisplay.pledged,
+      funded: projectToDisplay.funded,
+      daysToGo: projectToDisplay.daysToGo,
+      goal: projectToDisplay.goal,
+      category: projectToDisplay.category,
+      image: projectToDisplay.image});
+  }
+
+
 }

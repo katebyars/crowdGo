@@ -26,7 +26,21 @@ export class ProjectDetailComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
     });
-    this.projectToDisplay = this.projectService.getProjectById(this.projectId);
+    this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
+    this.projectToDisplay = new Project(dataLastEmittedFromObserver.name,
+            dataLastEmittedFromObserver.description,
+            dataLastEmittedFromObserver.author,
+            dataLastEmittedFromObserver.pledged,
+            dataLastEmittedFromObserver.funded,
+            dataLastEmittedFromObserver.daysToGo,
+            dataLastEmittedFromObserver.goal,
+            dataLastEmittedFromObserver.category,
+            dataLastEmittedFromObserver.image)
+  })
   }
 
+  beginFundingProject(donationValue, projectToDisplay){
+    console.log("hello Begin Funding");
+    this.projectService.fundProject(donationValue, projectToDisplay);
+  }
 }

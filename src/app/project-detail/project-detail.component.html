@@ -1,12 +1,20 @@
 <div>
-  <h3>{{(projectToDisplay | async)?.name}}</h3>
-  <h4>{{(projectToDisplay | async)?.author}}</h4>
-  <p>{{(projectToDisplay | async)?.description}}</p>
+  <h3>{{projectToDisplay?.name}}</h3>
+  <h4>{{projectToDisplay?.author}}</h4>
+  <p>{{projectToDisplay?.description}}</p>
   <ul>
-    <li>Pledged: ${{(projectToDisplay | async)?.pledged}}</li>
-    <li>Goal: ${{(projectToDisplay | async)?.goal}}</li>
-    <li>Days left: {{(projectToDisplay | async)?.daysToGo}}</li>
-    <li>Category: {{(projectToDisplay | async)?.category}}</li>
+    <li>Pledged:{{projectToDisplay?.pledged}}</li>
+    <li>Goal:{{projectToDisplay?.goal}}</li>
+    <li>Days left: {{projectToDisplay?.daysToGo}}</li>
+    <li>Category: {{projectToDisplay?.category}}</li>
   </ul>
-  <img src="{{(projectToDisplay | async)?.image}}" alt="Project logo">
+  <img src="{{projectToDisplay?.image}}" alt="Project logo">
+</div>
+<div>
+  <div>
+    <label>Donation Amount:</label>
+    <br>
+    <input #newDonation>
+  </div>
+  <button (click)="beginFundingProject(newDonation.value, projectToDisplay)">Fund Project</button>
 </div>
