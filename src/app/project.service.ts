@@ -24,8 +24,11 @@ export class ProjectService {
   }
 
   updateProject(localUpdatedProject){
+      console.log("testing");
     var projectEntryinFirebase = this.getProjectById(localUpdatedProject.$key);
-    projectEntryinFirebase.update({name: localUpdatedProject.name,
+
+    projectEntryinFirebase.update({
+    name: localUpdatedProject.name,
     description: localUpdatedProject.description,
     author: localUpdatedProject.author,
     pledged: localUpdatedProject.pledged,
@@ -41,40 +44,20 @@ export class ProjectService {
     projectEntryinFirebase.remove();
   }
 
-  fundProject(donationValue, projectToDisplay) {
-    console.log("fund project in service");
+  fundProject(donationValue, projectToDisplay, projectId) {
+    console.log("in service"+projectId);
+    let pickles = this.getProjectById(projectId);
+    let homies;
+    var projectEntryinFirebase = this.getProjectById(projectId).subscribe ( e => {
+      homies = e.pledged;
+    });
+    // console.log(projectEntryinFirebase);
+    // var newFunds: number = parseInt(projectToDisplay.pledged) + parseInt(donationValue);
+    // projectToDisplay.pledged = newFunds;
 
-    var projectEntryinFirebase = this.getProjectById(projectToDisplay.$key);
-    //
-    // this.getProjectById(projectToDisplay.$key).subscribe(dataLastEmittedFromObserver => {
-    // this.projectToFund = new Project(dataLastEmittedFromObserver.name,
-    //         dataLastEmittedFromObserver.description,
-    //         dataLastEmittedFromObserver.author,
-    //         dataLastEmittedFromObserver.pledged,
-    //         dataLastEmittedFromObserver.funded,
-    //         dataLastEmittedFromObserver.daysToGo,
-    //         dataLastEmittedFromObserver.goal,
-    //         dataLastEmittedFromObserver.category,
-    //         dataLastEmittedFromObserver.image)
-    // })
-
-
-    var newFunds: number = parseInt(projectToDisplay.pledged) + parseInt(donationValue);
-    projectToDisplay.pledged = newFunds;
-    console.log(newFunds);
-    console.log(projectToDisplay.pledged);
-    console.log(donationValue);
-
-    projectEntryinFirebase.update({name: projectToDisplay.name,
-      description: projectToDisplay.description,
-      author: projectToDisplay.author,
-      pledged: projectToDisplay.pledged,
-      funded: projectToDisplay.funded,
-      daysToGo: projectToDisplay.daysToGo,
-      goal: projectToDisplay.goal,
-      category: projectToDisplay.category,
-      image: projectToDisplay.image});
-  }
-
-
+// var newAmount = projectEntryinFirebase.pledged + donationValue;
+    pickles.update({
+      pledged: homies
+  });
+}
 }
